@@ -81,6 +81,7 @@ export const useVisualizer = ({ array }: VisualizerHookProps) => {
           const updatedArrayBars = [...prevArrayBars];
 
           updatedArrayBars[_i].setBarValue(generatedValue);
+          updatedArrayBars[_i].setBarType(BarType.BAR_GENERATED);
 
           if (_i === generatedValues.length - 1) setIsGenerating(false);
 

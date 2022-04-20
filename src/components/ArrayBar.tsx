@@ -10,7 +10,8 @@ const ArrayBar = ({ value, barType }: ArrayBarProps) => {
   return (
     <div
       className={`array-bar
-      ${barType === BarType.BAR_VISUALIZED && "visualized-bar"}`}
+      ${barType === BarType.BAR_VISUALIZED && "visualized-bar"}
+      ${barType === BarType.BAR_GENERATED && "generated-bar"}`}
       style={{ height: value + "px" }}
     />
   );

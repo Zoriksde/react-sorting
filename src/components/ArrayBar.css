@@ -6,3 +6,7 @@
 .visualized-bar {
     background-color: #76b046;
 }
+
+.generated-bar {
+    transition: height 0.3s ease-in-out;
+}

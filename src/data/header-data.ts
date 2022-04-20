@@ -1,8 +1,10 @@
 import { DescendingOrderGenerator, RandomBarsGenerator } from "../generators";
 import {
   BubbleSortStrategy,
+  HeapSortStrategy,
   InsertionSortStrategy,
   MergeSortStrategy,
+  QuickSortStrategy,
   SelectionSortStrategy,
 } from "../strategies";
 
@@ -12,6 +14,8 @@ export const headerStrategies = [
   new InsertionSortStrategy(),
   new SelectionSortStrategy(),
   new MergeSortStrategy(),
+  new QuickSortStrategy(),
+  new HeapSortStrategy(),
 ];
 
 // Generators that should be displayed in header
