@@ -1,0 +1,47 @@
+.visualizer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.visualizer-menu {
+    background-color: #15171c;
+    display: flex;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    padding-bottom: 12px;
+}
+
+.visualizer-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+    color: #e1e9fc;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+
+.visualizer-bars {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    transform: rotateX(180deg);
+    gap: 2px;
+    padding: 20px;
+}
+
+@media screen and (max-width: 1180px) {
+    .visualizer-menu {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        height: 100%;
+        gap: 12px;
+        padding: 12px;
+    }
+}
