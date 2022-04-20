@@ -6,6 +6,7 @@ import {
   MergeSortStrategy,
   QuickSortStrategy,
   SelectionSortStrategy,
+  ShellSortStrategy,
 } from "../strategies";
 
 // Strategies that should be displayed in header
@@ -16,6 +17,7 @@ export const headerStrategies = [
   new MergeSortStrategy(),
   new QuickSortStrategy(),
   new HeapSortStrategy(),
+  new ShellSortStrategy(),
 ];
 
 // Generators that should be displayed in header

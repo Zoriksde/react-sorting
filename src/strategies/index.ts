@@ -5,4 +5,5 @@ export * from "./SelectionSortStrategy";
 export * from "./MergeSortStrategy";
 export * from "./QuickSortStrategy";
 export * from "./HeapSortStrategy";
+export * from "./ShellSortStrategy";
 export * from "./Bar";
