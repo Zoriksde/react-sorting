@@ -66,7 +66,7 @@ export const useVisualizer = ({ array }: VisualizerHookProps) => {
 
           return updatedArrayBars;
         });
-      }, 10 * _i);
+      }, 8 * _i);
     });
   };
 
@@ -87,7 +87,7 @@ export const useVisualizer = ({ array }: VisualizerHookProps) => {
 
           return updatedArrayBars;
         });
-      }, 10 * _i);
+      }, 20 * _i);
     });
   };
 

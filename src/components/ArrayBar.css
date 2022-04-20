@@ -1,10 +1,10 @@
 .array-bar {
-    width: 22px;
+    width: 42px;
     background-color: #97aabd;
 }
 
 .visualized-bar {
-    background-color: #76b046;
+    background-color: #f5466f;
 }
 
 .generated-bar {

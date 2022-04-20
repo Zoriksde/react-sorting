@@ -5,8 +5,8 @@ import { AbstractStrategy } from "../strategies";
 import ArrayBar from "./ArrayBar";
 import "./Visualizer.css";
 
-export const ARRAY_SIZE = 60;
-export const MIN_VALUE = 10;
+export const ARRAY_SIZE = 100;
+export const MIN_VALUE = 50;
 export const MAX_VALUE = 450;
 
 interface VisualizerProps {
