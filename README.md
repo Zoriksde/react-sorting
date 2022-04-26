@@ -1,46 +1,94 @@
-# Getting Started with Create React App
+# Sorting Visualizer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sorting Visualizer project that helps others to understand basic ideas behind sorting algorithms.
+What's more the sorting algorithms aren't the ones which are implemented. There is also a capability to generate some basic arrays.
+Project is written in ReactJS with Typescript with some CSS styling.
 
-## Available Scripts
+In case if you want to run it on your local machine clone this repositry and then put
+```npm install``` on your command line.
 
-In the project directory, you can run:
+If you would like to look at this project online [visit sorting visualizer](https://react-sorting.vercel.app/)
 
-### `npm start`
+Project is written using OOP Principles and different Design Patterns, which makes it easy to maintain, extend, fix and change.
+Each algorithm is implemented as single class which inherits from abstract one (Strategy Design Pattern).
+The same concept is used in array generators algorithms.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Ex. of abstract strategy:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```ts 
+import { Bar } from "./Bar";
 
-### `npm test`
+export enum BarAnimations {
+  BAR_COMPARSION,
+  BAR_SWAP,
+  BAR_ASSIGNMENT,
+  BAR_ASSIGNMENT_REPAIR,
+}
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+export interface BarsAnimations {
+  currentBars: number[];
+  currentAnimation: BarAnimations;
+  assignmentBar?: Bar;
+}
 
-### `npm run build`
+export class AbstractStrategy {
+  constructor(public name: string) {}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  runSorting(arrayBars: Bar[]): BarsAnimations[] {
+    return [];
+  }
+}
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Visualization is made with usage of custom hooks, css transition property and setTimeout asynchronous function.
+After some interval of time specified bars are assigned to different type of transition property.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Ex. of custom useVisualizer hook methods:
 
-### `npm run eject`
+```ts
+ generatedValues.forEach((generatedValue, _i) => {
+      setTimeout(() => {
+        setArrayBars((prevArrayBars) => {
+          const updatedArrayBars = [...prevArrayBars];
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+          updatedArrayBars[_i].setBarValue(generatedValue);
+          updatedArrayBars[_i].setBarType(BarType.BAR_GENERATED);
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+          if (_i === generatedValues.length - 1) setIsGenerating(false);
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+          return updatedArrayBars;
+        });
+      }, 20 * _i);
+    });
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Ex. of css class transition property:
 
-## Learn More
+```css
+.generated-bar {
+    transition: height 0.3s ease-in-out;
+}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Algorithms that are covered here:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+| Algorithm      | Methodology |
+| ----------- | ----------- |
+| Bubble Sort | Compares two adjacent values |
+| Insertion Sort | Inserts current value in correct position |
+| Selection Sort | Selects minimum value in rest of array |
+| Merge Sort | Divides problem into subproblems and solve them recursively |
+| Quick Sort | Divides problem into subproblems and solve them recursively |
+| Heap Sort |  Constructs Max-Heap of values and picks highest value each time |
+| Shell Sort | Extended version of Insertion Sort |
+| Cocktail Shaker Sort | Bidirectional Bubble Sort |
+
+Maze patterns that are covered here:
+
+| Algorithm      | Description |
+| ----------- | ----------- |
+| Random Bars | Randomly shuffles array |
+| Descending Order | Generates sorted array in descending order |
+
+
+Project is written with main aim to help anyone who is interested in these topics. Enjoy playing around!
